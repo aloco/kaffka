@@ -9,9 +9,9 @@ const styles = {
 	},
 };
 
-interface IContentBlock extends WithStyles<typeof styles> {}
+interface IContentBlockProps extends WithStyles<typeof styles> {}
 
-class ContentBlock extends React.Component<IContentBlock, {}> {
+class ContentBlock extends React.Component<IContentBlockProps, {}> {
 	render() {
 		return (
 			<div className={this.props.classes.container}>

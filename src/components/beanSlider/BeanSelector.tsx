@@ -3,6 +3,7 @@ import withStyles, { WithStyles } from 'react-jss'
 import Slider from "react-slick";
 import IBean from '../../types/IBean';
 import BeanItem from './BeanItem';
+import ContentBlock from '../ContentBlock';
 
 
 const styles = {};
@@ -91,8 +92,13 @@ class BeanSelector extends React.Component<IBeanSelectorProps, IBeanSelectorStat
 
 		return (
 			
-			<section>	
-		
+			<section style={{marginTop: "40px"}}>	
+				<ContentBlock>
+					<h2>
+						Wähle deine liebste Kaffe Bohne ...
+					</h2>
+				</ContentBlock>
+
 				<Slider {...settings}>
 					{this.renderBeans()}
 				</Slider>

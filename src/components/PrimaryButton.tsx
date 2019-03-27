@@ -19,11 +19,11 @@ const styles = {
 	}
 };
 
-interface IPrimaryButton extends WithStyles<typeof styles> {
+interface IPrimaryButtonProps extends WithStyles<typeof styles> {
 	link: string
 }
 
-class PrimaryButton extends React.Component<IPrimaryButton, {}> {
+class PrimaryButton extends React.Component<IPrimaryButtonProps, {}> {
 	render() {
 		return (
 			<a href={this.props.link} className={this.props.classes.button}>
