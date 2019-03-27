@@ -1,4 +1,5 @@
 
+// coffee
 export default interface ICoffee {
 	id: string,
 	name: string,

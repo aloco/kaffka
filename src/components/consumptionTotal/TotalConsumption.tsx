@@ -18,7 +18,7 @@ interface ITotalConsumptionProps extends WithStyles<typeof styles> {
 
 class TotalConsumption extends React.Component<ITotalConsumptionProps, {}> {
 
-
+	// calculates total caffein for total coffee consumption
 	calculateCaffein() {
 		const selectedBean = this.props.selectedBean;
 
