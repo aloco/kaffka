@@ -11,7 +11,7 @@ const colors = {
 const styles = {
 	container: {
 		margin: '0 auto',
-		width: '1200px',
+		maxWidth: '1200px',
 		'@media (min-width: 540px)': {
 			maxWidth: '540px'
 		},
