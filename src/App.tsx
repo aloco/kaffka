@@ -17,6 +17,7 @@ import Coffee2Icon from './assets/icons/ic_espresso.png';
 
 import ICoffeeConsumption from './types/ICoffeeConsumption';
 import ICoffee from './types/ICoffee';
+import TotalConsumption from './components/consumptionTotal/TotalConsumption';
 
 interface IAppState {
 	selectedBean: IBean
@@ -141,6 +142,7 @@ class App extends Component<{}, IAppState> {
 				<Teaser/>
 				<BeanSelector availableBeans={this.state.availableBeans} selectedBean={this.state.selectedBean} selectBeanHandler={this.selectBeanHandler.bind(this)}/>
 				<CoffeeConsumption coffeeConsumption={this.state.coffeeConsumption} selectedBean={this.state.selectedBean} decreaseCoffeeHandler={(item) => this.updateCoffeeConsumption("minus", item)} increaseCoffeeHandler={(item) => this.updateCoffeeConsumption("plus", item)}/>
+				<TotalConsumption coffeeConsumption={this.state.coffeeConsumption} selectedBean={this.state.selectedBean}/>
 			</div>
 		);
 	}

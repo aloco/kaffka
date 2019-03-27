@@ -95,7 +95,6 @@ class CoffeeConsumption extends React.Component<ICoffeeConsumptionProps, {}> {
 		const caffeinInMGPer100ML = this.props.selectedBean.caffeinInMG * modifier;
 		const liquidMilliliter = coffeeConsumption.coffee.milliliters;
 		return ((caffeinInMGPer100ML * liquidMilliliter) / 100);
-
 	}
 
 
@@ -140,10 +139,11 @@ class CoffeeConsumption extends React.Component<ICoffeeConsumptionProps, {}> {
 	render() {
 		return (
 			<ContentBlock>
-				<section className={this.props.classes.container}>
-					<h2>
-						Du trinks jeden Tag ...
-					</h2>
+
+				<section id={"calculator"} className={this.props.classes.container}>
+				<h2 style={{textAlign: "left"}}>
+					Du trinks jeden Tag ...
+				</h2>
 					<div className={this.props.classes.listContainer}>
 						{this.renderCoffeeConsumption()}
 					</div>

@@ -43,7 +43,7 @@ class Header extends React.Component<IHeaderProps, {}> {
 						<p className={style.paragraph}>
 							Mit Kaffka kannst du deinen täglichen Kaffeekonsum tracken und dir berechnen lassen, wie sehr du von Kaffee abhängig bist.
 						</p>
-						<PrimaryButton link={"#"}>
+						<PrimaryButton link={"#calculator"}>
 							Kalkuliere
 						</PrimaryButton>
 					</div>
