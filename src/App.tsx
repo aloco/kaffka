@@ -16,9 +16,10 @@ import Coffee1Icon from './assets/icons/ic_cappuccino.png';
 import Coffee2Icon from './assets/icons/ic_espresso.png';
 
 import ICoffeeConsumption from './types/ICoffeeConsumption';
+import ICoffee from './types/ICoffee';
 
 interface IAppState {
-	selectedBean?: IBean
+	selectedBean: IBean
 	availableBeans: IBean[]
 	coffeeConsumption: ICoffeeConsumption[]
 }
@@ -58,17 +59,19 @@ const initialState = (props: {}): IAppState => {
 				name: "Capuccino",
 				iconUrl: Coffee1Icon,
 				milliliters: 100,
-				coffeeBeanInMilligrams: 30
+				coffeeBeanInMilligrams: 30,
+				intensity: "light",
 			},
 			amount: 0
 		},
 		{
 			coffee: {
-				id: "b2da49c4-d8f1-4893-9edd-db0af9c5e640",
+				id: "4af28c2e-287e-40da-847f-b9ea92928ba4",
 				name: "Espresso",
 				iconUrl: Coffee2Icon,
 				milliliters: 30,
-				coffeeBeanInMilligrams: 30
+				coffeeBeanInMilligrams: 30,
+				intensity: "strong"
 			},
 			amount: 0
 		}
@@ -96,13 +99,48 @@ class App extends Component<{}, IAppState> {
 		});
 	}
 
+	updateCoffeeConsumption(operation: "plus" | "minus", coffeeConsumption: ICoffeeConsumption) {
+
+		let newCoffeeConsumption: ICoffeeConsumption;
+
+		switch(operation) {
+			case "plus":
+				newCoffeeConsumption = {
+					...coffeeConsumption, 
+					amount: coffeeConsumption.amount + 1
+				}
+				break;
+			case "minus":
+				newCoffeeConsumption = {
+					...coffeeConsumption, 
+					amount: Math.max(coffeeConsumption.amount - 1, 0)
+				}
+				break;
+		}
+
+		// replace coffeeConsumption item in available list with the new coffeeConsumption item
+		const newList = this.state.coffeeConsumption.map(function(item) {
+			if (item.coffee.id === newCoffeeConsumption.coffee.id) {
+				return newCoffeeConsumption;
+			} else {
+				return item;
+			}
+		});
+
+		this.setState({
+			...this.state,
+			coffeeConsumption: newList
+		})
+
+	}
+
 	render() {
 		return (
 			<div className="App">
 				<Header />
 				<Teaser/>
 				<BeanSelector availableBeans={this.state.availableBeans} selectedBean={this.state.selectedBean} selectBeanHandler={this.selectBeanHandler.bind(this)}/>
-				<CoffeeConsumption coffeeConsumption={this.state.coffeeConsumption}/>
+				<CoffeeConsumption coffeeConsumption={this.state.coffeeConsumption} selectedBean={this.state.selectedBean} decreaseCoffeeHandler={(item) => this.updateCoffeeConsumption("minus", item)} increaseCoffeeHandler={(item) => this.updateCoffeeConsumption("plus", item)}/>
 			</div>
 		);
 	}
