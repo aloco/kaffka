@@ -1,4 +1,14 @@
-const styleVariables = {
+
+
+
+
+const colors = {
+	dark: '#000000',
+	darkFontColor: '#ffffff'
+}
+
+
+const styles = {
 	container: {
 		margin: '0 auto',
 		width: '1200px',
@@ -11,10 +21,17 @@ const styleVariables = {
 		'@media (min-width: 960px)': {
 			maxWidth: '960px'
 		},
-
-
+	},
+	darkBackground: {
+		backgroundColor: colors.dark
+	},
+	paragraph: {
+		fontSize: '20px',
+		lineHeight: '30px'
+	},
+	headline1: {
+		fontSize: '48px',
 	}
 }
 
-export default styleVariables;
-
+export default { styles, colors };
