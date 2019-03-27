@@ -1,6 +1,8 @@
 # kaffka
 Kaffka - Dein Kaffee Kalkulator
 
+Design:
+https://drive.google.com/drive/folders/1t4Cy9KayfkbJr891iq8UH9_8zFXdZ4l3?usp=sharing
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
