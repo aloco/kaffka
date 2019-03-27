@@ -62,7 +62,7 @@ const styles = {
 interface IBeanItemProps extends WithStyles<typeof styles> {
 	isSelected: boolean,
 	bean: IBean,
-	selectBeanHandler: (bean: IBean) => void
+	selectBeanHandler: (bean: IBean) => void // handles bean selection
 }
 
 class BeanItem extends React.Component<IBeanItemProps, {}> {

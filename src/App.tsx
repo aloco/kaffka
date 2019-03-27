@@ -25,6 +25,8 @@ interface IAppState {
 	coffeeConsumption: ICoffeeConsumption[]
 }
 
+// create initial default state
+// defines available coffee and beans
 const initialState = (props: {}): IAppState => {
 
 	// define available beans
@@ -78,6 +80,7 @@ const initialState = (props: {}): IAppState => {
 		}
 	];
 
+	// returns initial state
 	return {
 		selectedBean: availableBeans[0],
 		availableBeans,
@@ -100,10 +103,12 @@ class App extends Component<{}, IAppState> {
 		});
 	}
 
+	// update current coffee consumption
 	updateCoffeeConsumption(operation: "plus" | "minus", coffeeConsumption: ICoffeeConsumption) {
 
 		let newCoffeeConsumption: ICoffeeConsumption;
 
+		// add or reduce the amount of the given coffeeconsumption
 		switch(operation) {
 			case "plus":
 				newCoffeeConsumption = {
@@ -119,7 +124,7 @@ class App extends Component<{}, IAppState> {
 				break;
 		}
 
-		// replace coffeeConsumption item in available list with the new coffeeConsumption item
+		// replace coffeeConsumption item in available state list with the new coffeeConsumption item
 		const newList = this.state.coffeeConsumption.map(function(item) {
 			if (item.coffee.id === newCoffeeConsumption.coffee.id) {
 				return newCoffeeConsumption;
@@ -128,6 +133,7 @@ class App extends Component<{}, IAppState> {
 			}
 		});
 
+		// update component state
 		this.setState({
 			...this.state,
 			coffeeConsumption: newList

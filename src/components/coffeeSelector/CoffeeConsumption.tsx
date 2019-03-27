@@ -78,6 +78,7 @@ interface ICoffeeConsumptionProps extends WithStyles<typeof styles> {
 
 class CoffeeConsumption extends React.Component<ICoffeeConsumptionProps, {}> {
 
+	// calculates caffein of the given coffeeconsumption for one item
 	calculateCaffein(coffeeConsumption: ICoffeeConsumption) {
 		let modifier = 0;
 		switch (coffeeConsumption.coffee.intensity) {
@@ -139,7 +140,6 @@ class CoffeeConsumption extends React.Component<ICoffeeConsumptionProps, {}> {
 	render() {
 		return (
 			<ContentBlock>
-
 				<section id={"calculator"} className={this.props.classes.container}>
 				<h2 style={{textAlign: "left"}}>
 					Du trinks jeden Tag ...

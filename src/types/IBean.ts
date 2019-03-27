@@ -1,4 +1,5 @@
 
+// defines coffee bean
 export default interface IBean {
 	id: string,
     name: string,

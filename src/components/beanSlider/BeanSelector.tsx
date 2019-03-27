@@ -10,8 +10,8 @@ const styles = {};
 
 interface IBeanSelectorProps extends WithStyles<typeof styles> {
 	availableBeans: IBean[],
-	selectedBean?: IBean,
-    selectBeanHandler: (bean: IBean) => void
+	selectedBean: IBean,
+    selectBeanHandler: (bean: IBean) => void // handles bean selection change
 }
 
 interface IBeanSelectorState {
@@ -31,7 +31,7 @@ class BeanSelector extends React.Component<IBeanSelectorProps, IBeanSelectorStat
 		this.state = initialState(props);
 	}
 	
-	// create a BeanItem Component for each available Beans
+	// create a BeanItem Component for each available Bean
 	renderBeans() {
 		const currentBean = this.props.selectedBean;
 		const selectBeanHandler = this.props.selectBeanHandler;
@@ -51,26 +51,32 @@ class BeanSelector extends React.Component<IBeanSelectorProps, IBeanSelectorStat
 		this.props.selectBeanHandler(bean);
 	}
 
+	// component lifecycle hook
 	componentWillReceiveProps(nextProps: IBeanSelectorProps) {
+
+		// receives new props
 		const nextSelectedProps = nextProps.selectedBean;
 		const currentSelectedProps = this.props.selectedBean;
 
 		let updateSelectedBean = true;
 
+		// compare if new props are the same like before
 		if (typeof currentSelectedProps !== "undefined" && typeof nextSelectedProps !== "undefined") {
 			if (nextSelectedProps.id === currentSelectedProps.id) {
 				updateSelectedBean = false;
 			}
 		}
 
-		const nextSelectedBeanId = typeof nextSelectedProps === "undefined" ? "" : nextSelectedProps.id; 
 
-		// update state only if update is relevant
+		// update state only if update is relevant / props are new
 		if (updateSelectedBean) {
+
 			// find index of selected bean
+			const nextSelectedBeanId = typeof nextSelectedProps === "undefined" ? "" : nextSelectedProps.id; 
 			const index = this.props.availableBeans.findIndex(bean => bean.id === nextSelectedBeanId)
 			const newIndex = index >= 0 ? index : 0;
 
+			// save current selection index
 			this.setState({
 				...this.state,
 				currentIndex: newIndex
