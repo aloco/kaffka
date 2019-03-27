@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Teaser from './components/Teaser';
-import BeanSelector from './components/BeanSelector';
+import Header from './components/header/Header';
+import Teaser from './components/header/Teaser';
+import BeanSelector from './components/beanSlider/BeanSelector';
 import IBean from './types/IBean';
 
 import Coffe1 from './assets/images/img_hero_coffe1.jpg';
@@ -39,32 +39,23 @@ const initialState = (props: {}): IAppState => {
 			caffeinInMG: 86,
 			imageUrl: Coffe3
 		}
-	]
+	];
 
 	return {
-		selectedBean: availableBeans[1],
+		selectedBean: availableBeans[0],
 		availableBeans
 	}
 }
 
 class App extends Component<{}, IAppState> {
 
-
-
 	constructor(props: {}) {
         super(props);
         this.state = initialState(props);
 	}
 	
-	componentDidMount() {
-
-	}
-	componentDidUpdate() {
-
-	}
-
 	// Save bean selection to app state
-	selectBean(bean: IBean) {
+	selectBeanHandler(bean: IBean) {
 		this.setState({
 			...this.state,
 			selectedBean: bean
@@ -76,7 +67,8 @@ class App extends Component<{}, IAppState> {
 			<div className="App">
 				<Header />
 				<Teaser/>
-				<BeanSelector availableBeans={this.state.availableBeans} selectedBean={this.state.selectedBean} selectBean={this.selectBean.bind(this)}/>
+				<BeanSelector availableBeans={this.state.availableBeans} selectedBean={this.state.selectedBean} selectBeanHandler={this.selectBeanHandler.bind(this)}/>
+				
 			</div>
 		);
 	}

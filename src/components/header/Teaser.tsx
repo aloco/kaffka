@@ -1,9 +1,9 @@
 import React from 'react';
 import withStyles, { WithStyles } from 'react-jss'
-import globalStyles from '../global-style'
+import globalStyles from '../../global-style'
 
-import ContentBlock from './ContentBlock';
-import PrimaryButton from './PrimaryButton';
+import ContentBlock from '../ContentBlock';
+import PrimaryButton from '../PrimaryButton';
 
 const styles = {
 	section: {

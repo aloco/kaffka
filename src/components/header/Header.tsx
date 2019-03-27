@@ -1,9 +1,9 @@
 import React from 'react';
 import withStyles, { WithStyles } from 'react-jss'
-import ContentBlock from './ContentBlock';
+import ContentBlock from '../ContentBlock';
 
-import logo from '../assets/logos/logo_dal.png';
-import headerTeaserImage from '../assets/images/img_hero_coffe4.jpg';
+import logo from '../../assets/logos/logo_dal.png';
+import headerTeaserImage from '../../assets/images/img_hero_coffe4.jpg';
 
 const styles = {
 	logoWrapper: {
