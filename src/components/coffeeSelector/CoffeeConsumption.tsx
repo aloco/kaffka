@@ -17,7 +17,7 @@ const styles = {
 		width: "100%"
 	},
 	listItem: {
-		margin: "40px 20px",
+		margin: "20px",
 		height: "80px",
 		display: "flex",
 		alignItems: "center",
@@ -50,7 +50,10 @@ const styles = {
 	},
 	listContainer: {
 		color: globalStyle.colors.darkFontColor,
-		backgroundColor: globalStyle.colors.dark
+		backgroundColor: globalStyle.colors.dark,
+		padding: 0,
+		margin: 0,
+		listStyle: "none"
 	},
 	coffeeDescription: {
 		backgroundColor: globalStyle.colors.darkFontColor,
@@ -144,9 +147,9 @@ class CoffeeConsumption extends React.Component<ICoffeeConsumptionProps, {}> {
 				<h2 style={{textAlign: "left"}}>
 					Du trinks jeden Tag ...
 				</h2>
-					<div className={this.props.classes.listContainer}>
+					<ul className={this.props.classes.listContainer}>
 						{this.renderCoffeeConsumption()}
-					</div>
+					</ul>
 				</section>
 			</ContentBlock>
 		);
