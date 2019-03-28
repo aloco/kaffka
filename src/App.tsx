@@ -98,7 +98,7 @@ class App extends Component<{}, IAppState> {
 	// Save bean selection to app state
 	selectBeanHandler(bean: IBean) {
 		this.setState({
-			...this.state,
+			...this.state, // copy previous state
 			selectedBean: bean
 		});
 	}
@@ -112,7 +112,7 @@ class App extends Component<{}, IAppState> {
 		switch(operation) {
 			case "plus":
 				newCoffeeConsumption = {
-					...coffeeConsumption, 
+					...coffeeConsumption, // copy previous coffeeconsumption
 					amount: coffeeConsumption.amount + 1
 				}
 				break;
@@ -135,7 +135,7 @@ class App extends Component<{}, IAppState> {
 
 		// update component state
 		this.setState({
-			...this.state,
+			...this.state, // copy previous state
 			coffeeConsumption: newList
 		})
 
