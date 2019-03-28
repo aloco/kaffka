@@ -78,7 +78,6 @@ class BeanSelector extends React.Component<IBeanSelectorProps, IBeanSelectorStat
 
 			// save current selection index
 			this.setState({
-				...this.state,
 				currentIndex: newIndex
 			});
 		}
